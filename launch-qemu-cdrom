@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# launch vm from iso image
+# no harddisk
+#
+# using qemu
+#
+# arguments:
+# $1 image name
+
+qemu-system-i386 \
+    -m 2048 \
+    -enable-kvm \
+    -vga std \
+    -boot d \
+    -cdrom "$1"

@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# launch vm using existing imagefile
+#
+# using qemu
+#
+# arguments:
+# $1 image name
+
+qemu-system-i386 \
+    -m 2048 \
+    -enable-kvm \
+    -drive file="$1",if=virtio,cache=none
+
+# (did not work!)
+#qemu-system-i386 \
+#    -m 2048 \
+#    -enable-kvm \
+#    -vga std \
+#    "$1"

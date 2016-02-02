@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# launch vm to install a new system
+# from iso image into image file
+#
+# arguments:
+# $1 iso image name
+# $2 image file name
+
+# arch wiki
+#qemu-system-i386 -cdrom iso_image -boot order=d -drive file=disk_image,format=raw
+
+qemu-system-i386 \
+    -m 2048 \
+    -enable-kvm \
+    -vga std \
+    -boot d \
+    -cdrom "$1" \
+    -drive file="$2",format=raw
